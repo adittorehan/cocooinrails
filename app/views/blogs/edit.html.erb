@@ -1,0 +1,6 @@
+<h1>Editing Blog</h1>
+
+<%= render 'form', blog: @blog %>
+
+<%= link_to 'Show', user_blog_path(@user, @blog), class: 'btn btn-primary' %> |
+<%= link_to 'Back', user_blogs_path(@user), class: 'btn btn-primary' %>

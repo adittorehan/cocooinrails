@@ -1,0 +1,37 @@
+<%= form_for @user do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field mb-3">
+    <%= form.label :name, class: 'form-label'%>
+    <%= form.text_field :name, class: 'form-control' %>
+  </div>
+
+  <div class="field mb-3">
+    <%= form.label :email, class: 'form-label' %>
+    <%= form.text_field :email, class: 'form-control' %>
+  </div>
+
+  <h3>Blogs</h3>
+  <div id='blogs'>
+    <%= form.fields_for :blogs do |blog| %>
+      <%= render 'blog_fields', f: blog %>
+    <% end %>
+    <div class='links mt-5'>
+      <%= link_to_add_association 'Add Blog', form, :blogs, class: 'btn btn-info my-2' %>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Save", class: "btn btn-success my-2"%>
+  </div>
+<% end %>

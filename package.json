@@ -1,0 +1,7 @@
+{
+  "name": "cocoon_learning",
+  "private": true,
+  "dependencies": {
+    "@nathanvda/cocoon": "^1.2.14"
+  }
+}

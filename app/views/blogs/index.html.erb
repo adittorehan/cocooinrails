@@ -1,0 +1,32 @@
+<p><b><%= @user.name %></b> has the following blogs </p>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>User ID</th>
+    <th>Blog ID</th>
+    <th>Blog Title</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @user.blogs.each do |blog| %>
+    <tr>
+      <td><%= @user.id %></td>
+      <td><%= blog.id %> </td>
+      <td>
+        <%= blog.title %>
+      </td>
+      <td>
+        <%= link_to 'Show', user_blog_path(@user, blog), class: 'btn btn-success' %>
+        <%= link_to 'Edit', edit_user_blog_path(@user, blog), class:'btn btn-primary' %>
+        <%= link_to 'Destroy', user_blog_path(@user, blog), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+      </td>
+    </tr>
+  <% end %>
+
+  </tbody>
+
+</table>
+
+
